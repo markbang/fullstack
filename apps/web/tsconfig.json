@@ -1,0 +1,10 @@
+{
+  "extends": "../../tooling/tsconfig/react.json",
+  "include": ["**/*.ts", "**/*.tsx", "../../tooling/uno/shared.ts"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}

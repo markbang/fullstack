@@ -1,0 +1,36 @@
+{
+  "name": "fullstack-template",
+  "private": true,
+  "packageManager": "bun@1.3.11",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "turbo dev --parallel",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "typecheck": "turbo check-types",
+    "check-types": "turbo check-types",
+    "test": "turbo test",
+    "format": "biome format --write .",
+    "check": "bun run lint && bun run typecheck && bun run test && bun run build",
+    "dev:web": "turbo dev --filter=web",
+    "dev:docs": "turbo dev --filter=docs",
+    "dev:desktop": "turbo dev --filter=desktop",
+    "dev:api": "turbo dev --filter=api",
+    "db:generate": "turbo db:generate --filter=api",
+    "db:migrate": "turbo db:migrate --filter=api",
+    "db:studio": "turbo db:studio --filter=api"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.12",
+    "@iconify-json/lucide": "^1.2.102",
+    "@unocss/preset-icons": "^66.6.8",
+    "@unocss/preset-wind4": "^66.6.8",
+    "@unocss/transformer-directives": "^66.6.8",
+    "@unocss/transformer-variant-group": "^66.6.8",
+    "@unocss/vite": "^66.6.8",
+    "turbo": "^2.9.6",
+    "unocss": "^66.6.8"
+  }
+}

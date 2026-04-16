@@ -1,0 +1,8 @@
+{
+  "extends": "../../tooling/tsconfig/base.json",
+  "compilerOptions": {
+    "composite": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["vite.config.ts", "uno.config.ts", "../../tooling/uno/shared.ts"]
+}

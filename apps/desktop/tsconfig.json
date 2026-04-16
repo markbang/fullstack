@@ -1,0 +1,4 @@
+{
+  "extends": "../../tooling/tsconfig/solid.json",
+  "include": ["src", "../../tooling/uno/shared.ts"]
+}

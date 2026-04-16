@@ -1,0 +1,26 @@
+---
+title: Architecture
+description: How the apps are split and why.
+icon: Boxes
+---
+
+## Application map
+
+| App | Purpose | Notes |
+| --- | --- | --- |
+| `apps/web` | main product shell | TanStack Start + HeroUI |
+| `apps/docs` | documentation site | Fumadocs on TanStack Start |
+| `apps/desktop` | native desktop shell | Tauri v2 + SolidJS |
+| `apps/api` | HTTP backend | Hono + Drizzle + Bun SQLite |
+
+## Shared tooling
+
+- `tooling/tsconfig/*` centralizes TypeScript baselines.
+- `tooling/uno/shared.mjs` shares UnoCSS presets, theme tokens, and shortcuts.
+- Root `biome.json` keeps formatting and linting rules in one place.
+- Root `turbo.json` defines the task graph for the full workspace.
+
+## Design choice
+
+This template intentionally favors **small shared primitives** over large internal packages.
+That keeps the repo easy to understand on day one, while still leaving room to extract shared packages later.
