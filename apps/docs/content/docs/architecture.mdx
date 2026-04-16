@@ -15,8 +15,12 @@ icon: Boxes
 
 ## Shared tooling
 
-- `tooling/tsconfig/*` centralizes TypeScript baselines.
-- `tooling/uno/shared.mjs` shares UnoCSS presets, theme tokens, and shortcuts.
+- `packages/typescript-config/*` centralizes TypeScript baselines.
+- `packages/uno-config` shares UnoCSS presets, theme tokens, and shortcuts.
+- `packages/design-tokens` holds the reusable visual token layer.
+- `packages/shared` holds workspace metadata and cross-app runtime helpers.
+- `packages/ui-react` holds reusable React presentation primitives for `web` and `docs`.
+- `packages/contracts` holds API-facing DTO and response contracts.
 - Root `biome.json` keeps formatting and linting rules in one place.
 - Root `turbo.json` defines the task graph for the full workspace.
 

@@ -1,8 +1,9 @@
+import { openDocs } from '@repo/shared'
+import { Eyebrow, Panel } from '@repo/ui-react'
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { CommandStrip } from '@/components/command-strip'
 import { LandingHero } from '@/components/landing-hero'
 import { StackGrid } from '@/components/stack-grid'
-import { openDocs } from '@/lib/service-links'
 
 export const Route = createFileRoute('/')({
   component: Home,
@@ -18,9 +19,9 @@ function Home() {
       <StackGrid />
 
       <section className="grid gap-4 xl:grid-cols-[1.1fr_0.9fr]">
-        <article className="stack-panel min-w-0 p-6">
+        <Panel className="min-w-0 p-6">
           <div className="flex flex-col items-start gap-2">
-            <p className="stack-label">Why this template</p>
+            <Eyebrow>Why this template</Eyebrow>
             <h2 className="text-2xl font-semibold text-white">
               A clean baseline, not a noisy demo.
             </h2>
@@ -36,17 +37,17 @@ function Home() {
               template stays pragmatic instead of dogmatic.
             </p>
           </div>
-        </article>
+        </Panel>
 
-        <article className="stack-panel min-w-0 p-6">
+        <Panel className="min-w-0 p-6">
           <div className="flex flex-col items-start gap-2">
-            <p className="stack-label">Default commands</p>
+            <Eyebrow>Default commands</Eyebrow>
             <h2 className="text-2xl font-semibold text-white">Day-one workflow</h2>
           </div>
           <div className="mt-4 min-w-0">
             <CommandStrip />
           </div>
-        </article>
+        </Panel>
       </section>
     </div>
   )

@@ -48,6 +48,23 @@ bun run db:migrate
 bun run db:studio
 ```
 
+### Service URL overrides
+
+Shared service links resolve from environment variables first, then fall back to localhost defaults.
+
+```bash
+cp .env.example .env
+```
+
+Supported overrides:
+
+- `VITE_WEB_ORIGIN`
+- `VITE_DOCS_ORIGIN`
+- `VITE_API_ORIGIN`
+- `WEB_ORIGIN`
+- `DOCS_ORIGIN`
+- `API_ORIGIN`
+
 ## Default ports
 
 - Web: `3000`
@@ -64,9 +81,13 @@ apps/
   docs/     Fumadocs on TanStack Start
   web/      TanStack Start + HeroUI
 
-tooling/
-  tsconfig/ shared TypeScript bases
-  uno/      shared UnoCSS theme and shortcuts
+packages/
+  contracts/          shared API contracts and DTOs
+  design-tokens/      shared visual tokens
+  shared/             shared runtime helpers and workspace metadata
+  typescript-config/ shared TypeScript baselines
+  ui-react/           shared React UI primitives
+  uno-config/        shared UnoCSS theme and shortcuts
 ```
 
 ## Notes
@@ -74,3 +95,4 @@ tooling/
 - `apps/api` is intentionally zero-config for local development and defaults to a local SQLite file.
 - `apps/web` and `apps/docs` keep Tailwind CSS 4 because HeroUI and Fumadocs depend on it, while UnoCSS remains available across the monorepo for utilities and icons.
 - `apps/desktop` uses a native Tauri command to demonstrate the Rust ↔ frontend bridge without adding unnecessary complexity.
+- Shared runtime helpers live in `packages/shared`, React-facing reusable presentation primitives live in `packages/ui-react`, API-facing response contracts live in `packages/contracts`, and visual foundations live in `packages/design-tokens`.

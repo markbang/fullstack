@@ -6,6 +6,10 @@ import { nitro } from 'nitro/vite'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
+  optimizeDeps: {
+    noDiscovery: true,
+    exclude: ['@repo/shared', '@repo/ui-react'],
+  },
   server: {
     port: 3001,
     strictPort: true,

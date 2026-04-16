@@ -6,23 +6,18 @@
       "name": "fullstack-template",
       "devDependencies": {
         "@biomejs/biome": "^2.4.12",
-        "@iconify-json/lucide": "^1.2.102",
-        "@unocss/preset-icons": "^66.6.8",
-        "@unocss/preset-wind4": "^66.6.8",
-        "@unocss/transformer-directives": "^66.6.8",
-        "@unocss/transformer-variant-group": "^66.6.8",
-        "@unocss/vite": "^66.6.8",
         "turbo": "^2.9.6",
-        "unocss": "^66.6.8",
       },
     },
     "apps/api": {
       "name": "api",
       "dependencies": {
+        "@repo/contracts": "workspace:*",
         "drizzle-orm": "^0.45.2",
         "hono": "^4.12.14",
       },
       "devDependencies": {
+        "@repo/typescript-config": "workspace:*",
         "@types/bun": "latest",
         "drizzle-kit": "^0.31.10",
         "typescript": "^6.0.2",
@@ -35,7 +30,10 @@
         "solid-js": "^1.9.12",
       },
       "devDependencies": {
+        "@repo/typescript-config": "workspace:*",
+        "@repo/uno-config": "workspace:*",
         "@tauri-apps/cli": "^2.10.1",
+        "@unocss/vite": "^66.6.8",
         "typescript": "^6.0.2",
         "vite": "^8.0.8",
         "vite-plugin-solid": "^2.11.12",
@@ -44,6 +42,8 @@
     "apps/docs": {
       "name": "docs",
       "dependencies": {
+        "@repo/shared": "workspace:*",
+        "@repo/ui-react": "workspace:*",
         "@tanstack/react-router": "^1.168.22",
         "@tanstack/react-start": "^1.167.41",
         "fumadocs-core": "^16.7.16",
@@ -56,6 +56,7 @@
         "tailwindcss": "^4.2.2",
       },
       "devDependencies": {
+        "@repo/typescript-config": "workspace:*",
         "@tailwindcss/vite": "^4.2.2",
         "@types/mdx": "^2.0.13",
         "@types/node": "^25.6.0",
@@ -72,6 +73,8 @@
       "dependencies": {
         "@heroui/react": "^3.0.2",
         "@heroui/styles": "^3.0.2",
+        "@repo/shared": "workspace:*",
+        "@repo/ui-react": "workspace:*",
         "@tanstack/react-router": "^1.168.22",
         "@tanstack/react-start": "^1.167.41",
         "@tanstack/router-plugin": "^1.167.22",
@@ -82,15 +85,65 @@
         "tailwindcss": "^4.2.2",
       },
       "devDependencies": {
+        "@repo/typescript-config": "workspace:*",
+        "@repo/uno-config": "workspace:*",
         "@tailwindcss/vite": "^4.2.2",
         "@testing-library/react": "^16.3.2",
         "@types/node": "^25.6.0",
         "@types/react": "^19.2.2",
         "@types/react-dom": "^19.2.2",
+        "@unocss/vite": "^66.6.8",
         "jsdom": "^29.0.2",
         "typescript": "^6.0.2",
         "vite": "^8.0.8",
         "vitest": "^4.1.4",
+      },
+    },
+    "packages/contracts": {
+      "name": "@repo/contracts",
+      "version": "0.0.0",
+      "dependencies": {
+        "zod": "^3.25.76",
+      },
+    },
+    "packages/design-tokens": {
+      "name": "@repo/design-tokens",
+      "version": "0.0.0",
+    },
+    "packages/shared": {
+      "name": "@repo/shared",
+      "version": "0.0.0",
+    },
+    "packages/typescript-config": {
+      "name": "@repo/typescript-config",
+      "version": "0.0.0",
+    },
+    "packages/ui-react": {
+      "name": "@repo/ui-react",
+      "version": "0.0.0",
+      "dependencies": {
+        "@repo/shared": "workspace:*",
+        "lucide-react": "^1.8.0",
+        "react": "^19.2.5",
+      },
+      "devDependencies": {
+        "@types/react": "^19.2.2",
+      },
+      "peerDependencies": {
+        "react": "^19.2.5",
+      },
+    },
+    "packages/uno-config": {
+      "name": "@repo/uno-config",
+      "version": "0.0.0",
+      "dependencies": {
+        "@iconify-json/lucide": "^1.2.102",
+        "@repo/design-tokens": "workspace:*",
+        "@unocss/preset-icons": "^66.6.8",
+        "@unocss/preset-wind4": "^66.6.8",
+        "@unocss/transformer-directives": "^66.6.8",
+        "@unocss/transformer-variant-group": "^66.6.8",
+        "unocss": "^66.6.8",
       },
     },
   },
@@ -518,6 +571,18 @@
     "@react-types/slider": ["@react-types/slider@3.9.0", "https://registry.npmmirror.com/@react-types/slider/-/slider-3.9.0.tgz", { "dependencies": { "@react-aria/slider": "^3.9.0", "@react-spectrum/slider": "^3.9.0", "@react-stately/slider": "^3.8.0" }, "peerDependencies": { "@react-spectrum/provider": "^3.0.0", "react": "^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1", "react-dom": "^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1" } }, "sha512-gbQWB8LnucC+jhDi5Imd2ZDPbVuiHt0xzObGHWq6GTZ3slLgTvGQaHNO5h9+h7dZH0iFQOVNb6+TlyTsnjFuAw=="],
 
     "@react-types/table": ["@react-types/table@3.14.0", "https://registry.npmmirror.com/@react-types/table/-/table-3.14.0.tgz", { "dependencies": { "@react-spectrum/table": "^3.18.0", "@react-stately/table": "^3.16.0", "@react-types/shared": "^3.34.0" }, "peerDependencies": { "@react-spectrum/provider": "^3.0.0", "react": "^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1", "react-dom": "^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1" } }, "sha512-emTYu9biFFlVEN208EmYpnO3bzi0f7q+07rnerUWRRRqXQpgNW/G5Tc6ifgCUXLp+KjwzLIeoDl4hs3ZnG5NSA=="],
+
+    "@repo/contracts": ["@repo/contracts@workspace:packages/contracts"],
+
+    "@repo/design-tokens": ["@repo/design-tokens@workspace:packages/design-tokens"],
+
+    "@repo/shared": ["@repo/shared@workspace:packages/shared"],
+
+    "@repo/typescript-config": ["@repo/typescript-config@workspace:packages/typescript-config"],
+
+    "@repo/ui-react": ["@repo/ui-react@workspace:packages/ui-react"],
+
+    "@repo/uno-config": ["@repo/uno-config@workspace:packages/uno-config"],
 
     "@rolldown/binding-android-arm64": ["@rolldown/binding-android-arm64@1.0.0-rc.15", "https://registry.npmmirror.com/@rolldown/binding-android-arm64/-/binding-android-arm64-1.0.0-rc.15.tgz", { "os": "android", "cpu": "arm64" }, "sha512-YYe6aWruPZDtHNpwu7+qAHEMbQ/yRl6atqb/AhznLTnD3UY99Q1jE7ihLSahNWkF4EqRPVC4SiR4O0UkLK02tA=="],
 
@@ -1549,7 +1614,7 @@
 
     "yallist": ["yallist@3.1.1", "https://registry.npmmirror.com/yallist/-/yallist-3.1.1.tgz", {}, "sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g=="],
 
-    "zod": ["zod@4.3.6", "https://registry.npmmirror.com/zod/-/zod-4.3.6.tgz", {}, "sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg=="],
+    "zod": ["zod@3.25.76", "https://registry.npmmirror.com/zod/-/zod-3.25.76.tgz", {}, "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ=="],
 
     "zwitch": ["zwitch@2.0.4", "https://registry.npmmirror.com/zwitch/-/zwitch-2.0.4.tgz", {}, "sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A=="],
 
@@ -1601,17 +1666,11 @@
 
     "@tailwindcss/oxide-wasm32-wasi/tslib": ["tslib@2.8.1", "https://registry.npmmirror.com/tslib/-/tslib-2.8.1.tgz", { "bundled": true }, "sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w=="],
 
-    "@tanstack/router-generator/zod": ["zod@3.25.76", "https://registry.npmmirror.com/zod/-/zod-3.25.76.tgz", {}, "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ=="],
-
     "@tanstack/router-plugin/chokidar": ["chokidar@3.6.0", "https://registry.npmmirror.com/chokidar/-/chokidar-3.6.0.tgz", { "dependencies": { "anymatch": "~3.1.2", "braces": "~3.0.2", "glob-parent": "~5.1.2", "is-binary-path": "~2.1.0", "is-glob": "~4.0.1", "normalize-path": "~3.0.0", "readdirp": "~3.6.0" }, "optionalDependencies": { "fsevents": "~2.3.2" } }, "sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw=="],
-
-    "@tanstack/router-plugin/zod": ["zod@3.25.76", "https://registry.npmmirror.com/zod/-/zod-3.25.76.tgz", {}, "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ=="],
 
     "@tanstack/start-plugin-core/@babel/code-frame": ["@babel/code-frame@7.27.1", "https://registry.npmmirror.com/@babel/code-frame/-/code-frame-7.27.1.tgz", { "dependencies": { "@babel/helper-validator-identifier": "^7.27.1", "js-tokens": "^4.0.0", "picocolors": "^1.1.1" } }, "sha512-cjQ7ZlQ0Mv3b47hABuTevyTuYN4i+loJKGeV9flcCgIK37cCXRh+L1bd3iBHlynerhQ7BhCkn2BPbQUL+rGqFg=="],
 
     "@tanstack/start-plugin-core/@rolldown/pluginutils": ["@rolldown/pluginutils@1.0.0-beta.40", "https://registry.npmmirror.com/@rolldown/pluginutils/-/pluginutils-1.0.0-beta.40.tgz", {}, "sha512-s3GeJKSQOwBlzdUrj4ISjJj5SfSh+aqn0wjOar4Bx95iV1ETI7F6S/5hLcfAxZ9kXDcyrAkxPlqmd1ZITttf+w=="],
-
-    "@tanstack/start-plugin-core/zod": ["zod@3.25.76", "https://registry.npmmirror.com/zod/-/zod-3.25.76.tgz", {}, "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ=="],
 
     "anymatch/picomatch": ["picomatch@2.3.2", "https://registry.npmmirror.com/picomatch/-/picomatch-2.3.2.tgz", {}, "sha512-V7+vQEJ06Z+c5tSye8S+nHUfI51xoXIXjHQ99cQtKUkQqqO1kO/KCJUfZXuB47h/YBlDhah2H3hdUGXn8ie0oA=="],
 
@@ -1625,7 +1684,11 @@
 
     "dom-serializer/entities": ["entities@4.5.0", "https://registry.npmmirror.com/entities/-/entities-4.5.0.tgz", {}, "sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw=="],
 
+    "fumadocs-core/zod": ["zod@4.3.6", "https://registry.npmmirror.com/zod/-/zod-4.3.6.tgz", {}, "sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg=="],
+
     "fumadocs-mdx/esbuild": ["esbuild@0.28.0", "https://registry.npmmirror.com/esbuild/-/esbuild-0.28.0.tgz", { "optionalDependencies": { "@esbuild/aix-ppc64": "0.28.0", "@esbuild/android-arm": "0.28.0", "@esbuild/android-arm64": "0.28.0", "@esbuild/android-x64": "0.28.0", "@esbuild/darwin-arm64": "0.28.0", "@esbuild/darwin-x64": "0.28.0", "@esbuild/freebsd-arm64": "0.28.0", "@esbuild/freebsd-x64": "0.28.0", "@esbuild/linux-arm": "0.28.0", "@esbuild/linux-arm64": "0.28.0", "@esbuild/linux-ia32": "0.28.0", "@esbuild/linux-loong64": "0.28.0", "@esbuild/linux-mips64el": "0.28.0", "@esbuild/linux-ppc64": "0.28.0", "@esbuild/linux-riscv64": "0.28.0", "@esbuild/linux-s390x": "0.28.0", "@esbuild/linux-x64": "0.28.0", "@esbuild/netbsd-arm64": "0.28.0", "@esbuild/netbsd-x64": "0.28.0", "@esbuild/openbsd-arm64": "0.28.0", "@esbuild/openbsd-x64": "0.28.0", "@esbuild/openharmony-arm64": "0.28.0", "@esbuild/sunos-x64": "0.28.0", "@esbuild/win32-arm64": "0.28.0", "@esbuild/win32-ia32": "0.28.0", "@esbuild/win32-x64": "0.28.0" }, "bin": { "esbuild": "bin/esbuild" } }, "sha512-sNR9MHpXSUV/XB4zmsFKN+QgVG82Cc7+/aaxJ8Adi8hyOac+EXptIp45QBPaVyX3N70664wRbTcLTOemCAnyqw=="],
+
+    "fumadocs-mdx/zod": ["zod@4.3.6", "https://registry.npmmirror.com/zod/-/zod-4.3.6.tgz", {}, "sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg=="],
 
     "hast-util-raw/parse5": ["parse5@7.3.0", "https://registry.npmmirror.com/parse5/-/parse5-7.3.0.tgz", { "dependencies": { "entities": "^6.0.0" } }, "sha512-IInvU7fabl34qmi9gY8XOVxhYyMyuH2xUNpb2q8/Y+7552KlejkRvqvD19nMoUW/uQGGbqNpA6Tufu5FL5BZgw=="],
 

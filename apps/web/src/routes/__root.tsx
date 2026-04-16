@@ -1,5 +1,5 @@
+import { brand, getApiHealthUrl, getDocsUrl } from '@repo/shared'
 import { createRootRoute, HeadContent, Outlet, Scripts } from '@tanstack/react-router'
-import { getApiHealthUrl, openDocs } from '@/lib/service-links'
 import appCss from '../styles.css?url'
 
 export const Route = createRootRoute({
@@ -38,8 +38,8 @@ function RootComponent() {
                   <span className="i-lucide-orbit text-lg" />
                 </span>
                 <span className="min-w-0">
-                  <strong className="block text-sm font-semibold text-white">Elegant Stack</strong>
-                  <span className="text-xs text-white/50">Bun + Turbo monorepo template</span>
+                  <strong className="block text-sm font-semibold text-white">{brand.name}</strong>
+                  <span className="text-xs text-white/50">{brand.tagline}</span>
                 </span>
               </a>
 
@@ -50,13 +50,12 @@ function RootComponent() {
                 >
                   Stack
                 </a>
-                <button
+                <a
                   className="rounded-full px-3 py-2 transition hover:bg-white/8 hover:text-white"
-                  onClick={openDocs}
-                  type="button"
+                  href={getDocsUrl()}
                 >
                   Docs
-                </button>
+                </a>
                 <a
                   className="rounded-full px-3 py-2 transition hover:bg-white/8 hover:text-white"
                   href={getApiHealthUrl()}

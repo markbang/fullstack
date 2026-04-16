@@ -1,6 +1,6 @@
 {
-  "extends": "../../tooling/tsconfig/react.json",
-  "include": ["**/*.ts", "**/*.tsx", "../../tooling/uno/shared.ts"],
+  "extends": "@repo/typescript-config/react.json",
+  "include": ["**/*.ts", "**/*.tsx"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {

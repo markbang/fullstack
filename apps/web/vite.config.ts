@@ -5,6 +5,9 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
+  optimizeDeps: {
+    exclude: ['@repo/shared', '@repo/ui-react'],
+  },
   server: {
     port: 3000,
     strictPort: true,
