@@ -19,7 +19,7 @@
     }
   },
   "ignoreWorkspaces": ["packages/typescript-config"],
-  "ignore": [".agents/**", "apps/docs/src/lib/cn.ts"],
+  "ignore": [".agents/**", "apps/docs/src/lib/cn.ts", "apps/desktop/src/preload/index.d.ts"],
   "ignoreDependencies": [
     "@heroui/styles",
     "@iconify-json/lucide",

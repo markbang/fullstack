@@ -1,4 +1,4 @@
 {
-  "extends": "@repo/typescript-config/solid.json",
-  "include": ["src"]
+  "files": [],
+  "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.web.json" }]
 }

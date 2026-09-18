@@ -1,8 +1,10 @@
 {
   "extends": "@repo/typescript-config/base.json",
+  "include": ["electron.vite.config.ts", "uno.config.ts", "src/main/**/*", "src/preload/index.ts"],
   "compilerOptions": {
     "composite": true,
-    "allowSyntheticDefaultImports": true
-  },
-  "include": ["vite.config.ts", "uno.config.ts"]
+    "noEmit": false,
+    "allowImportingTsExtensions": false,
+    "types": ["node"]
+  }
 }

@@ -1,0 +1,9 @@
+{
+  "extends": "@repo/typescript-config/solid.json",
+  "include": ["src/renderer/src/**/*", "src/preload/index.d.ts"],
+  "compilerOptions": {
+    "composite": true,
+    "noEmit": false,
+    "allowImportingTsExtensions": false
+  }
+}

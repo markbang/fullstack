@@ -9,7 +9,7 @@ export const brand = {
     'Bun 管理依赖，Turbo 编排任务，Web / Docs / Desktop / API 四个应用各司其职，默认保留优雅的设计基线，而不是塞满样板噪音。',
 } as const
 
-export const heroTags = ['bun', 'turbo', 'tanstack start', 'tauri v2', 'hono', 'fumadocs'] as const
+export const heroTags = ['bun', 'turbo', 'tanstack start', 'electron', 'hono', 'fumadocs'] as const
 
 export const defaultCommands = ['bun install', 'bun run dev', 'bun run check'] as const
 
@@ -180,11 +180,11 @@ export const workspaceApps: WorkspaceApp[] = [
     title: 'Desktop',
     path: 'apps/desktop',
     iconKey: 'laptop-minimal-check',
-    shortDescription: 'Tauri v2 + SolidJS',
-    description: 'Tauri v2 + SolidJS，保留原生桥接能力且前端非常轻。',
+    shortDescription: 'Electron + SolidJS',
+    description: 'Electron + SolidJS，保留原生 IPC 桥接能力且前端非常轻。',
     points: [
-      'Tauri v2 shell with SolidJS',
-      'Native command bridge example',
+      'Electron shell built with electron-vite',
+      'Main/preload IPC bridge example',
       'UnoCSS-only UI styling',
     ],
   },

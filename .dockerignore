@@ -15,8 +15,7 @@ node_modules
 **/.vite
 **/dist
 
-apps/desktop/src-tauri/target
-apps/desktop/src-tauri/gen
+apps/desktop/out
 apps/api/drizzle
 apps/api/*.db
 apps/api/*.db-shm
