@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-# Lint the commit message with commitlint before the commit is created.
-bunx commitlint --edit "$1"

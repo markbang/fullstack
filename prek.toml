@@ -1,0 +1,11 @@
+default_install_hook_types = ["commit-msg"]
+
+[[repos]]
+repo = "local"
+
+[[repos.hooks]]
+id = "commitlint"
+name = "commitlint"
+language = "system"
+entry = "bunx commitlint --edit"
+stages = ["commit-msg"]
