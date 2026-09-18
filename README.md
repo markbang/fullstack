@@ -22,24 +22,10 @@ bun install
 bun run dev
 ```
 
-### Use this template with git
-
-If you want to start a fresh repository from this template with plain `git`:
+### Use this template
 
 ```bash
-git clone --depth=1 git@github.com:markbang/fullstack.git my-app
-cd my-app
-rm -rf .git
-git init -b main
-git add .
-git commit -m "Initialize from Elegant Stack template"
-```
-
-Then connect it to your own repository:
-
-```bash
-git remote add origin git@github.com:YOUR_NAME/YOUR_REPO.git
-git push -u origin main
+npx gitpick https://github.com/markbang/fullstack
 ```
 
 ### Targeted dev commands
