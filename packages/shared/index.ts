@@ -1,3 +1,5 @@
+import { entries, find, mapValues } from 'remeda'
+
 export const brand = {
   name: 'Elegant Stack',
   docsName: 'Elegant Stack Docs',
@@ -44,16 +46,17 @@ export type ServiceOriginValidationIssue = {
   value: string
 }
 
-export function readServiceOriginOverrides() {
-  return Object.fromEntries(
-    Object.entries(serviceOriginEnvKeys).map(([service, keys]) => {
-      const override = keys
-        .map((key) => ({ key, value: readEnv(key) }))
-        .find((entry): entry is { key: string; value: string } => Boolean(entry.value))
+type ServiceOriginOverride = { key: string; value: string }
 
-      return [service, override]
-    }),
-  ) as Record<ServiceName, { key: string; value: string } | undefined>
+function readServiceOriginOverride(keys: readonly string[]): ServiceOriginOverride | undefined {
+  return find(
+    keys.map((key) => ({ key, value: readEnv(key) })),
+    (entry): entry is ServiceOriginOverride => Boolean(entry.value),
+  )
+}
+
+export function readServiceOriginOverrides() {
+  return mapValues(serviceOriginEnvKeys, readServiceOriginOverride)
 }
 
 export function validateServiceOriginOverrides(
@@ -61,9 +64,7 @@ export function validateServiceOriginOverrides(
 ): ServiceOriginValidationIssue[] {
   const issues: ServiceOriginValidationIssue[] = []
 
-  for (const [service, override] of Object.entries(overrides) as Array<
-    [ServiceName, { key: string; value: string } | undefined]
-  >) {
+  for (const [service, override] of entries(overrides)) {
     if (!override) continue
 
     try {

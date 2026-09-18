@@ -152,4 +152,4 @@ packages/
 - `apps/api` is intentionally zero-config for local development and defaults to a local SQLite file. Environment variables are validated with zod in `apps/api/src/env.ts` before the server starts.
 - `apps/web` and `apps/docs` keep Tailwind CSS 4 because HeroUI and Fumadocs depend on it, while UnoCSS remains available across the monorepo for utilities and icons.
 - `apps/desktop` uses a native Tauri command to demonstrate the Rust ↔ frontend bridge without adding unnecessary complexity.
-- Shared runtime helpers live in `packages/shared`, React-facing reusable presentation primitives live in `packages/ui-react`, API-facing response contracts live in `packages/contracts`, and visual foundations live in `packages/design-tokens`.
+- Shared runtime helpers live in `packages/shared` (remeda is available there for functional utilities), React-facing reusable presentation primitives live in `packages/ui-react`, API-facing response contracts live in `packages/contracts`, and visual foundations live in `packages/design-tokens`.
