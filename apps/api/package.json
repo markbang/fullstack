@@ -16,7 +16,8 @@
   "dependencies": {
     "@repo/contracts": "workspace:*",
     "drizzle-orm": "^0.45.2",
-    "hono": "^4.12.14"
+    "hono": "^4.12.14",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",

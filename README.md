@@ -57,8 +57,45 @@ bun run dev:api
 bun run lint
 bun run typecheck
 bun run test
+bun run knip
 bun run build
 ```
+
+### Commit conventions
+
+Commit messages are checked against [Conventional Commits](https://www.conventionalcommits.org/) with commitlint. The hook is wired up on install through the repository `core.hooksPath`:
+
+```bash
+bun install        # installs deps and points git at .githooks
+bunx commitlint --edit .git/COMMIT_EDITMSG   # lint a message manually
+```
+
+Keep the `type(scope): subject` shape, for example `feat(api): add env validation`.
+
+### Unused code and dependencies
+
+[Knip](https://knip.dev) finds unused files, exports, and dependencies across the workspace:
+
+```bash
+bun run knip
+```
+
+The baseline in `knip.json` declares each app's entry points and keeps intentional template dependencies (UnoCSS presets, `lucide-react`, and similar) out of the report.
+
+### Docker Compose
+
+Run the API, web, and docs apps together without installing Bun locally:
+
+```bash
+cp .env.example .env
+docker compose up --build
+```
+
+- Web: <http://localhost:3000>
+- Docs: <http://localhost:3001>
+- API: <http://localhost:3002>
+
+The API SQLite file lives in the named `api-data` volume, so it survives container restarts. The desktop app is intentionally left out because Tauri needs a host toolchain.
 
 ### Database workflow
 
@@ -112,7 +149,7 @@ packages/
 
 ## Notes
 
-- `apps/api` is intentionally zero-config for local development and defaults to a local SQLite file.
+- `apps/api` is intentionally zero-config for local development and defaults to a local SQLite file. Environment variables are validated with zod in `apps/api/src/env.ts` before the server starts.
 - `apps/web` and `apps/docs` keep Tailwind CSS 4 because HeroUI and Fumadocs depend on it, while UnoCSS remains available across the monorepo for utilities and icons.
 - `apps/desktop` uses a native Tauri command to demonstrate the Rust ↔ frontend bridge without adding unnecessary complexity.
 - Shared runtime helpers live in `packages/shared`, React-facing reusable presentation primitives live in `packages/ui-react`, API-facing response contracts live in `packages/contracts`, and visual foundations live in `packages/design-tokens`.

@@ -1,8 +1,9 @@
 import { Database } from 'bun:sqlite'
 import { drizzle } from 'drizzle-orm/bun-sqlite'
+import { env } from '../env'
 import * as schema from './schema'
 
-const dbFileName = process.env.DB_FILE_NAME ?? './local.db'
+const dbFileName = env.DB_FILE_NAME
 
 export const sqlite = new Database(dbFileName, { create: true })
 

@@ -17,9 +17,10 @@ import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { db, dbFileName } from './db/client'
 import { users } from './db/schema'
+import { env } from './env'
 import { apiMeta } from './lib/meta'
 
-const port = Number(process.env.API_PORT ?? 3002)
+const port = env.API_PORT
 
 export const app = new Hono()
 

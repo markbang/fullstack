@@ -1,0 +1,41 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "workspaces": {
+    "apps/api": {
+      "entry": ["src/index.ts"],
+      "project": ["src/**/*.ts"]
+    },
+    "apps/web": {
+      "entry": ["src/routes/**/*.tsx", "uno.config.ts"],
+      "project": ["src/**/*.{ts,tsx}"]
+    },
+    "apps/docs": {
+      "entry": ["src/routes/**/*.{ts,tsx}"],
+      "project": ["src/**/*.{ts,tsx}"]
+    },
+    "apps/desktop": {
+      "entry": ["uno.config.ts"],
+      "project": ["src/**/*.{ts,tsx}"]
+    }
+  },
+  "ignoreWorkspaces": ["packages/typescript-config"],
+  "ignore": [".agents/**", "apps/docs/src/lib/cn.ts"],
+  "ignoreDependencies": [
+    "@heroui/styles",
+    "@iconify-json/lucide",
+    "@tanstack/router-plugin",
+    "@unocss/preset-icons",
+    "@unocss/preset-wind4",
+    "@unocss/transformer-directives",
+    "@unocss/transformer-variant-group",
+    "lucide-react",
+    "tailwind-merge",
+    "tailwindcss"
+  ],
+  "ignoreIssues": {
+    "apps/api/src/db/client.ts": ["exports"],
+    "apps/docs/src/components/mdx.tsx": ["exports", "duplicates"],
+    "apps/docs/src/lib/shared.ts": ["exports"],
+    "packages/contracts/index.ts": ["duplicates"]
+  }
+}
