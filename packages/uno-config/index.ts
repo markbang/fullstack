@@ -5,8 +5,8 @@ export function createUnoConfig() {
   return {
     theme: {
       colors,
-      boxShadow: shadows,
-      fontFamily: fonts,
+      font: fonts,
+      shadow: shadows,
     },
     shortcuts: {
       'stack-shell': 'mx-auto w-full max-w-6xl px-6 lg:px-8',
