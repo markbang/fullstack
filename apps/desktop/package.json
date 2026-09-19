@@ -21,7 +21,7 @@
     "@repo/typescript-config": "workspace:*",
     "@repo/uno-config": "workspace:*",
     "@types/node": "^26.5.1",
-    "@unocss/vite": "^66.6.8",
+    "@unocss/vite": "^66.10.5",
     "electron": "^44.4.2",
     "electron-builder": "^26.15.3",
     "electron-vite": "6.0.0-beta.1",
