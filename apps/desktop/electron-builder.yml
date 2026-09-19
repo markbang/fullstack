@@ -1,0 +1,41 @@
+appId: com.elegant-stack.desktop
+productName: Elegant Stack Desktop
+directories:
+  buildResources: build
+files:
+  - '!src/*'
+  - '!electron.vite.config.{js,ts,mjs,cjs}'
+  - '!uno.config.ts'
+  - '!tsconfig.json'
+  - '!tsconfig.node.json'
+  - '!tsconfig.web.json'
+  - '!.turbo/*'
+  - '!*.tsbuildinfo'
+  - '!{.env,.env.*,.npmrc,README.md}'
+win:
+  executableName: elegant-stack-desktop
+nsis:
+  artifactName: ${name}-${version}-setup.${ext}
+  shortcutName: ${productName}
+  uninstallDisplayName: ${productName}
+  createDesktopShortcut: always
+mac:
+  entitlementsInherit: build/entitlements.mac.plist
+  extendInfo:
+    - NSCameraUsageDescription: Application requests access to the device's camera.
+    - NSMicrophoneUsageDescription: Application requests access to the device's microphone.
+  notarize: false
+dmg:
+  artifactName: ${name}-${version}.${ext}
+linux:
+  executableName: elegant-stack-desktop
+  target:
+    - AppImage
+    - deb
+  maintainer: Elegant Stack <maintainer@example.com>
+  category: Utility
+appImage:
+  artifactName: ${name}-${version}.${ext}
+npmRebuild: false
+electronDownload:
+  mirror: https://npmmirror.com/mirrors/electron/

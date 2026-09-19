@@ -1,16 +1,21 @@
 {
   "name": "desktop",
+  "version": "0.1.0",
   "private": true,
+  "description": "Elegant Stack desktop shell built with Electron",
+  "author": "Elegant Stack",
+  "repository": "https://github.com/markbang/fullstack",
   "main": "./out/main/index.js",
   "scripts": {
     "dev": "electron-vite dev",
     "build": "electron-vite build",
+    "build:unpack": "bun run build && electron-builder --dir",
+    "build:win": "bun run build && electron-builder --win",
+    "build:mac": "bun run build && electron-builder --mac",
+    "build:linux": "bun run build && electron-builder --linux",
     "preview": "electron-vite preview",
     "lint": "biome check .",
     "check-types": "tsc --noEmit -p tsconfig.node.json --composite false && tsc --noEmit -p tsconfig.web.json --composite false"
-  },
-  "dependencies": {
-    "solid-js": "^1.9.12"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
@@ -18,7 +23,9 @@
     "@types/node": "^26.5.1",
     "@unocss/vite": "^66.6.8",
     "electron": "^44.4.2",
+    "electron-builder": "^26.15.3",
     "electron-vite": "^5.0.0",
+    "solid-js": "^1.9.12",
     "typescript": "^7.0.2",
     "vite": "^7.2.6",
     "vite-plugin-solid": "^2.11.12"

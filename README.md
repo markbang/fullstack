@@ -60,5 +60,5 @@ packages/
 - `apps/web` keeps small client-side state in zustand stores under `src/stores`.
 - `apps/api` is intentionally zero-config for local development and defaults to a local SQLite file. Environment variables are validated with zod in `apps/api/src/env.ts` before the server starts.
 - `apps/web` and `apps/docs` keep Tailwind CSS 4 because HeroUI and Fumadocs depend on it, while UnoCSS remains available across the monorepo for utilities and icons.
-- `apps/desktop` runs on Electron, built with electron-vite, and demonstrates the main/preload IPC bridge without adding unnecessary complexity.
+- `apps/desktop` runs on Electron, built with electron-vite, demonstrates the main/preload IPC bridge, and packages with electron-builder (`bun run build:linux`, `build:mac`, `build:win`).
 - Shared runtime helpers live in `packages/shared` (remeda is available there for functional utilities), React-facing reusable presentation primitives live in `packages/ui-react`, API-facing response contracts live in `packages/contracts`, and visual foundations live in `packages/design-tokens`.
