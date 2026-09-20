@@ -19,6 +19,9 @@ on:
       - 'turbo.json'
       - '.github/workflows/ci-api.yml'
 
+permissions:
+  contents: read
+
 concurrency:
   group: ci-api-${{ github.ref }}
   cancel-in-progress: true

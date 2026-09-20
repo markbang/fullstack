@@ -19,6 +19,9 @@ on:
       - 'turbo.json'
       - '.github/workflows/ci-web.yml'
 
+permissions:
+  contents: read
+
 concurrency:
   group: ci-web-${{ github.ref }}
   cancel-in-progress: true
