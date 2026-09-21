@@ -7,7 +7,7 @@
     ".": "./index.ts"
   },
   "dependencies": {
-    "@iconify-json/lucide": "^1.2.133",
+    "@iconify-json/lucide": "^1.2.134",
     "@repo/design-tokens": "workspace:*",
     "@unocss/preset-icons": "^66.10.5",
     "@unocss/preset-wind4": "^66.10.5",
