@@ -17,7 +17,7 @@
     "@repo/ui-react": "workspace:*",
     "@tanstack/react-router": "^1.168.22",
     "@tanstack/react-start": "^1.168.54",
-    "@tanstack/router-plugin": "^1.167.22",
+    "@tanstack/router-plugin": "^1.168.40",
     "@vitejs/plugin-react": "^6.0.1",
     "lucide-react": "^1.8.0",
     "react": "^19.2.5",
